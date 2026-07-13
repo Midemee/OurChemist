@@ -10,7 +10,4 @@ public interface DispensedDrugRepository {
     void delete(DispensedDrug dispensedDrug);
     void deleteAll();
     boolean existsById(int id);
-
-
-
 }
