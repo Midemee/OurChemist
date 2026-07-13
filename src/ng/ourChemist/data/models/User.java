@@ -6,14 +6,6 @@ public class User {
     private String fullName;
     private int id;
 
-    public User(){}
-
-    public User(String username, String password, String fullName){
-        this.username = username;
-        this.password = password;
-        this.fullName = fullName;
-    }
-
     public String getPassword() {
         return password;
     }

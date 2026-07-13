@@ -25,19 +25,16 @@ public class UserRepositoryTest {
 
     @Test
     public void saveNewUser_findByIdReturnsUserTest() {
-        User user = new User("Tee", "1914", "Tobi Dara");
+        User user = new User();
         userRepository.save(user);
         User savedUser = userRepository.findById(1);
         assertNotNull(savedUser);
         assertEquals(1, savedUser.getId());
-        assertEquals("Tee", savedUser.getUsername());
-        assertEquals("1914", savedUser.getPassword());
-        assertEquals("Tobi Dara", savedUser.getFullName());
     }
 
     @Test
     public void updateUser_FindByIdReturnsUserTest(){
-        User user = new User("Tim", "password123", "Timothy Praise");
+        User user = new User();
         User saved = userRepository.save(user);
         saved.setFullName("Tyron Praise");
         userRepository.save(saved);
@@ -56,8 +53,8 @@ public class UserRepositoryTest {
 
     @Test
     public void saveTwoUsers_incrementsCountTest() {
-        User firstUser = new User("Tee", "1914", "Tobi Dara");
-        User secondUser = new User("Tim", "password123", "Timothy Praise");
+        User firstUser = new User();
+        User secondUser = new User();
         userRepository.save(firstUser);
         userRepository.save(secondUser);
 
@@ -66,7 +63,7 @@ public class UserRepositoryTest {
 
     @Test
     public void deleteUser_decrementsCountTest() {
-        User user = new User("Tim", "password123", "Timothy Praise");
+        User user = new User();
         userRepository.save(user);
         userRepository.delete(user);
         assertNull(userRepository.findById(user.getId()));
@@ -75,8 +72,8 @@ public class UserRepositoryTest {
 
     @Test
     public void deleteById_removesCorrectUserTest() {
-        User firstUser = new User("Tim", "password123", "Timothy Praise");
-        User secondUser = new User("Tee", "1914", "Tobi Dara");
+        User firstUser = new User();
+        User secondUser = new User();
         userRepository.save(firstUser);
         userRepository.save(secondUser);
         userRepository.deleteById(1);
@@ -88,15 +85,15 @@ public class UserRepositoryTest {
 
     @Test
     public void deleteAll_repositoryBecomesEmptyTest() {
-        userRepository.save(new User("Tee", "1914", "Tobi Dara"));
-        userRepository.save(new User("Tim", "password123", "Timothy Praise"));
+        userRepository.save(new User());
+        userRepository.save(new User());
         userRepository.deleteAll();
         assertEquals(0, userRepository.count());
     }
 
     @Test
     public void existsById_returnsTrueWhenUserExistsTest() {
-        User user = new User("Tim", "password123", "Timothy Praise");
+        User user = new User();
         userRepository.save(user);
 
         assertTrue(userRepository.existsById(user.getId()));

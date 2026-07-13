@@ -8,15 +8,6 @@ public class Drug {
     private LocalDate expiryDate;
     private int price;
 
-    public Drug() {}
-
-    public Drug(String name, String brand, LocalDate expiryDate, int price){
-        this.name = name;
-        this.brand = brand;
-        this.expiryDate = expiryDate;
-        this.price = price;
-    }
-
     public int getId() {
         return id;
     }
