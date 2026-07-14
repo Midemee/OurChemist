@@ -20,11 +20,11 @@ class DispensedDrugRepositoryTest {
         assertEquals(0, dispensedDrugRepository.count());
     }
 
-//    @Test
-//    public void saveDrug_incrementsCountTest() {
-//        dispensedDrugRepository.save(dispensedDrug());
-//        assertEquals(1, dispensedDrugRepository.count());
-//    }
+    @Test
+    public void saveDrug_incrementsCountTest() {
+        dispensedDrugRepository.save(new DispensedDrug());
+        assertEquals(1, dispensedDrugRepository.count());
+    }
 
     @Test
     public void saveDispensedDrug_findDrugById_returnsDispensedDrugTest() {
