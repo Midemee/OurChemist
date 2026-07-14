@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class DispensedDrugssRepositoryTest {
+class DispensedDrugsRepositoryTest {
     private DispensedDrugsRepository dispensedDrugsRepository;
 
     @BeforeEach
