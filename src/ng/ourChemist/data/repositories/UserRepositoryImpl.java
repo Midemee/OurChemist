@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserRepositoryImpl implements UserRepository{
-    private int nextId;
-    private final List<User> users = new ArrayList<>();
+    private static int nextId;
+    private static final List<User> users = new ArrayList<>();
 
     @Override
     public long count(){
@@ -31,12 +31,8 @@ public class UserRepositoryImpl implements UserRepository{
     }
 
     public void updateExisting(User user){
-        for(int index = 0; index < users.size(); index++){
-            if(users.get(index).getId() == user.getId()){
-                users.set(index, user);
-                return;
-            }
-        }
+        deleteById(user.getId());
+        users.add(user);
     }
 
     @Override
@@ -67,4 +63,15 @@ public class UserRepositoryImpl implements UserRepository{
     public boolean existsById(int id){
         return findById(id) != null;
     }
+
+    @Override
+    public User findByUsername(String username){
+        for(User user: users){
+            if(user.getUsername().equals(username)){
+                return user;
+            }
+        }
+        return null;
+    }
+
 }
